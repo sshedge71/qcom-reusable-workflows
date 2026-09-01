@@ -1,0 +1,14 @@
+name: Repo Policy Check
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+  workflow_dispatch:
+
+jobs:
+  call-repo-policy-check:
+    uses: sshedge71/qcom-reusable-workflows/.github/workflows/reusable-repo-policy-check.yml@f91a62da17a1ae1ceff0da518c07a84657df0b7f
