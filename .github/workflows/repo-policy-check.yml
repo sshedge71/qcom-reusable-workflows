@@ -11,4 +11,4 @@ on:
 
 jobs:
   call-repo-policy-check:
-    uses: sshedge71/qcom-reusable-workflows/.github/workflows/reusable-repo-policy-check.yml@f91a62da17a1ae1ceff0da518c07a84657df0b7f
+    uses: sshedge71/qcom-reusable-workflows/.github/workflows/reusable-repo-policy-check.yml@10969e0bbb04ed806789998a89bedfad6447b9ab
