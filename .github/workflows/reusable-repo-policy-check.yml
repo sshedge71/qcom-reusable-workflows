@@ -1,4 +1,4 @@
-name: Repository Policy Check Reusable Workflow
+name: Repository Policy Check Reusable Workflow (blocking test)
 on:
   workflow_call:
 
@@ -8,7 +8,7 @@ permissions:
 jobs:
   run-repo-policy-check:
     if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
-    name: Run Repository Policy Check (shadow mode)
+    name: Run Repository Policy Check (blocking mode)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -16,9 +16,6 @@ jobs:
         with:
           persist-credentials: false
       - name: Run Repository Policy Check
-        # This step is non-blocking (continue-on-error) while its output is
-        # compared against repolinter's before it becomes the enforced gate.
-        continue-on-error: true
         uses: qualcomm/repo-policy-action@72c9c6dc64607153cda24e9f6d3f8e115c1a4a29 # v0.1.0
         with:
           config_url: "https://raw.githubusercontent.com/qualcomm/.github/main/repolint.json"
